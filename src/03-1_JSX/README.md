@@ -4,7 +4,7 @@ JavaScript XML의 줄임말로 '자바스크립트에 XML을 추가한 확장형
 
 ## JSX 특징
 
-```javascript {.line-numbers}
+```javascript
 import React, { Component } from "react";
 
 class Jsx extends Component {
@@ -37,7 +37,7 @@ export default Jsx;
    `<br>` 이나 `<input type='text' >`는
    `<br />` 와 `<input type='text' />`처럼 반드시 닫아주어야 합니다.
 2. 두개이상의 태그는 꼭 하나의 태그로 감싸져 있어야 합니다.
-   ```javascript {.line-numbers}
+   ```javascript
    class Jsx extends Component {
      render() {
        return (
@@ -51,3 +51,4 @@ export default Jsx;
      }
    }
    ```
+3. 태그와 컴포넌트를 구별하기위해 컴포넌트의 첫글자는 반드시 대문자로 시작하여야 합니다.
