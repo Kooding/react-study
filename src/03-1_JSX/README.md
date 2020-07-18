@@ -36,7 +36,7 @@ export default Jsx;
 1. 태그의 닫는 것을 반드시 명시 해주어야합니다.
    `<br>` 이나 `<input type='text' >`는
    `<br />` 와 `<input type='text' />`처럼 반드시 닫아주어야 합니다.
-2. 두개이상의 태그는 꼭 하나의 태그로 감싸져 있어야 합니다.
+2. 두개이상의 태그나 컴포넌트는 꼭 하나의 태그로 감싸져 있어야 합니다.
    ```javascript
    class Jsx extends Component {
      render() {

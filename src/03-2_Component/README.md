@@ -52,9 +52,11 @@ ReactDOM.render(<MyComponent />, document.getElementById("root"));
 
 좀 전에 만든 MyComponent를 index.js 에서 import해서 불러와 주고
 실질적으로 화면에 렌더해주는 ReactDOM 의 render 함수를 통해 컴포넌트를 화면에 출력할수 있습니다.
-`ReactDOM.render(element, container[,callback])` 은 첫번째 인자로 react element나 컴포넌트가 될 수 있고,
+`ReactDOM.render(element, container[,callback])` 은 첫번째 인자로 react element 를 넘겨주고
 두번째 인자로 DOM 노드를 선택하는데 이 DOM 노드 안에 모든 elements 가 렌더링 되기 때문에 이를
-이때, 이전에 렌더링 된 결과가 있다면 다음 렌더링 될때 이전 렌더링 결과와 비교하여 변화된 부분만 변경되어 보여지게 됩니다.
+root 노드라고도 불립니다.
+React element는 `<div />`나 `<span></span>`이 될수도 있고 사용자가 만든 컴포넌트도 될 수 있습니다.
+render함수는 이전에 렌더링 된 결과가 있다면 다음 렌더링 될때 이전 렌더링 결과와 비교하여 변화된 부분만 변경되어 보여지게 됩니다.
 
 또한 컴포넌트에서 다른 컴포넌트도 출력 가능합니다. [리액트 공식 문서](https://ko.reactjs.org/docs/components-and-props.html) 에서는 이를 Composing Components 번역된 이름으론 컴포넌트 합성 이라 합니다.
 
