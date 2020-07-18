@@ -1,7 +1,13 @@
 import React from "react";
+import Anchor from "./Anchor";
 
 function App() {
-  return <div>Hello React</div>;
+  return (
+    //number 타입으로 넘겨줘야할 size가 string으로 넘어갔을때 오류!
+    <Anchor path="./favicon.ico" blank={false} size="40">
+      link
+    </Anchor>
+  );
 }
 
 export default App;
