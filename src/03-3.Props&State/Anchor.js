@@ -17,10 +17,14 @@ class Anchor extends React.Component {
 }
 
 Anchor.propTypes = {
-  path: PropTypes.string,
+  path: PropTypes.string.isRequired,
   children: PropTypes.string.isRequired,
   blank: PropTypes.bool,
   size: PropTypes.number
+};
+
+Anchor.defaultProps = {
+  path: "www.naver.com"
 };
 
 export default Anchor;
