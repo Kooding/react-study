@@ -68,8 +68,9 @@ onIncrease = () => {
 };
 ```
 
-<center><img src="./image1.png"  width="300px" ></center>
-<center>[state를 직접 변경했을때.jpg]</center>
+<img src="./image1.png"  width="300px" />
+
+[state를 직접 변경했을때.jpg]
 
 위 결과를 보면 `state`값은 바뀌었지만 화면은 여전히 0을 보여주고 있습니다. 그 이유는 리액트가 컴포넌트의 `state`가 바뀌었다는걸 모르기 때문입니다.
 
