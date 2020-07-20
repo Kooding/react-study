@@ -1,8 +1,8 @@
 import React from "react";
-import StateExample from "./03-4 State/StateExample";
+import LifecycleExample from "./03-5 Lifecycle/LifecycleExample";
 
 function App() {
-  return <StateExample />;
+  return <LifecycleExample />;
 }
 
 export default App;
