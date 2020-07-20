@@ -5,7 +5,6 @@
 3. [Props의 타입을 검사하는 방법](##-Props의-타입을-검사하는-방법)
 4. [boolean Property](##-boolean-Property)
 5. [default props](##-default-props)
-   props 구조분해할당
 
 # props와 state.
 
@@ -36,7 +35,6 @@ class Child extends React.Component {
       </div>
     );
   }
-}
 
 ReactDOM.render(<Parent />, document.getElementById("root"));
 ```
@@ -45,9 +43,9 @@ ReactDOM.render(<Parent />, document.getElementById("root"));
 
 하위 컴포넌트 Child에서는 this.props 로 상위컴포넌트에서 넘겨받은 값을 사용 할 수 있게 됩니다.
 
-이때 `this.props`를 `console.log(this.props)`로 확인해보면 `{name: "koo", age: 27}`과 같이 객체 형태로 넘어오기 때문에 key를통해 value값에 접근할수 있습니다.
+이때 `this.props`를 `console.log(this.props)`로 확인해보면 `{name: "koo", age: 27}`과 같이 객체 형태로 넘어오기 때문에 key를 통해 value값에 접근할수 있습니다.
 
-> 만약 상위 컴포넌트에서 `<Child>koo</Child>` 라고 했다면 foo는 Child에서 this.props.children으로 접근 가능합니다.
+> 만약 상위 컴포넌트에서 `<Child>koo</Child>` 라고 했다면 foo는 Child 컴포넌트 에서 `this.props.children`으로 접근 가능합니다.
 
 ## Props의 타입을 검사하는 방법
 
@@ -76,7 +74,7 @@ class Anchor extends React.Component {
     );
   }
 }
-
+// 여기에서 타입을 정의.
 Anchor.propTypes = {
   path: PropTypes.string.isRequired,
   children: PropTypes.string.isRequired,
@@ -88,7 +86,12 @@ Anchor.propTypes = {
 class App extends Component{
   ...
   render() {
-    return <Anchor path='www.naver.com' blank size={20}>link</Anchor>
+    return (
+      <>
+        <Anchor path='www.naver.com' blank size={20}>link</Anchor>
+        <Anchor path='www.naver.com' blank size="20">link</Anchor>
+      </>
+    )
   }
 }
 
@@ -96,7 +99,7 @@ class App extends Component{
 
 위 예제에서는 부모 컴포넌트(App.js)로 부터 path와 blank size의 속성값을 받아와 Anchor 태그를 렌더링하는 컴포넌트의 예제입니다.
 
-Anchor 컴포넌트는 결과 적으로
+Anchor 컴포넌트는 개발자의 의도대로 제대로 된 props가 넘어 온다면 결과 적으로
 
 ```html
 <a href="www.naver.con" target="_self" style=" fontSize: 20px; ">link</a>
@@ -109,7 +112,7 @@ Anchor 컴포넌트에서 fontsize의 값이 숫자가 아니라 문자열 형�
 
 하지만 propTypes를 사용하면 prop에 유효하지 않은 값이 전달 되었을 때 경고문이 JavaScript 콘솔을 통해 경고창을 보여주게 될것입니다.
 
-> \*_주의_ - propType<span style="color:red">s</span> 오타에 주의 하자
+> \*_주의_ - propTypes 오타에 주의 하자
 
 ![콘솔의 결고 메세지](/src/images/error.png "에러메세지")
 
@@ -145,7 +148,11 @@ class App extends React.Component{
 path를 넘겨주지 않았을 때 경고로 알려주기 위한 방법은 아주 간단합니다. 타입 검사할때 설정해주었던
 값에 `isRequired`라는 특수 변수를 사용해주면 개발자 콘솔에 경고를 뛰워주게 됩니다.
 
-```
+```javascript
+// in Anchor Component
+class Achor extends React.Component {
+  ...생략
+}
 Anchor.propTypes = {
   path: PropTypes.string.isRequired,
   ...생략...
