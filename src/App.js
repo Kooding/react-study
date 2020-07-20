@@ -1,5 +1,5 @@
 import React from "react";
-import Anchor from "./03-3.Props&State/Anchor";
+import Anchor from "./03-3.Props/Anchor";
 
 // class Parent extends React.Component {
 //   render() {
@@ -21,10 +21,10 @@ function App() {
   return (
     //number 타입으로 넘겨줘야할 size가 string으로 넘어갔을때 오류!
     <>
-      <Anchor path="./favicon.ico" blank={false} size={40}>
+      <Anchor path="./favicon.ico" blank size={40}>
         link
       </Anchor>
-      <Anchor blank={false} size={40}>
+      <Anchor blank size="40">
         link
       </Anchor>
     </>

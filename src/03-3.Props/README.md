@@ -1,19 +1,18 @@
 # 목차
 
-1. [props와 state.](#-props와-state.)
+1. [props와 state.](##-props와-state.)
 2. [props로 값전달하기](##-props로-값전달하기)
 3. [Props의 타입을 검사하는 방법](##-Props의-타입을-검사하는-방법)
 4. [boolean Property](##-boolean-Property)
 5. [default props](##-default-props)
 
-# props와 state.
+## props와 state.
 
 리액트에서는 상위 컴포넌트가 하위 컴포넌트에게 전달하는 값인 속성값(Props)와
 컴포넌트안에서 생성되어 관리되는 상태값(State)가 있습니다.
 특징적인 차이점은 props는 수정 불가능한 읽기전용 값이며 State는 변경가능한 값이라는 것입니다.
-이둘의 차이점을 아는 것은 중요하다고 할 수 있습니다.
 
-리액트에서는 state나 props 변경되면 리액트가 렌더 함수를 이용해서 화면을 자동으로 갱신해 준다.
+> _리액트에서는 state나 props 변경되면 리액트가 렌더 함수를 이용해서 화면을 자동으로 갱신해 줍니다._
 
 ## props로 값전달하기
 
