@@ -155,7 +155,7 @@ export default LifecycleExample;
 [예제-모든 Lifecycle Method 구현해보기(작업중...)](./LifecycleExample.js)
 
 - Toggle 버튼으로 Mounting 과정에서 실행되는 method들과 Unmounting 까지 실행되는 method를 확인할수 있습니다.
-- forceUpdate 버튼으로 `forceUpdate()`함수를 실행시켜 `render(), getSnapshotBeforUpdate(), componentDidUpdate()`method 를 실행시킬수 있습니다. (forceUpdate) **_forceUpdate는 `shouldComponentUpdate()` 함수를 호출하지 않습니다._**
+- forceUpdate 버튼으로 `forceUpdate()`함수를 실행시켜 `render(), getSnapshotBeforUpdate(), componentDidUpdate()`method 를 실행시킬수 있습니다. (forceUpdate) **_!forceUpdate는 `shouldComponentUpdate()` 함수를 호출하지 않습니다._**
 - changeProps 버튼으로 props값을 바꿔서 넣어줄 수 있습니다. (New Props) 또한 `getSnapshotBeforUpdate()`함수에서 반환하는값을 `componentDidUpdate()`에서 조회하는것을 확인 할 수 있습니다.
 - +1 버튼으로 state를 변경해줄수 있습니다. (setState)
 - setState 버튼은 아무것도 바꾸지않는 빈 setState() 함수입니다. 불필요한 렌더링을 발생시켜 `shouldComponentUpdate()`함수로직을 실행시킵니다.
