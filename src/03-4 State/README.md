@@ -47,9 +47,16 @@ export default StateExample;
 > [2.state값을 변경할 때는 setState() 함수(상태 관리 함수)를 반드시 사용해야 합니다.](<##-setState()-함수를-사용하지-않을때>)  
 > 3.setState() 함수는 비동기로 처리되며, setState() 코드 이후로 연결된 함수들의 실행이 완료된 시점에 화면 동기화 과정을 거칩니다._
 
-## setState() 함수의 함수형 업데이트 방법
+## setState() 함수의 첫번째 인자로 함수를 넘겨 업데이트하는 방법
 
-위 예제에서 우린 setState() 함수에 새로운 객체를 만들어 state값을 변경 시켰습니다.
+위 예제에서 우린 setState() 함수에 현재 state값을 불러와 업데이트 해주었습니다. 또 다른 방법으로는 함수를 인자로 넘겨 업데이트 하는방법에 대해 알아보겠습니다.
+첫번재 들어가는 함수를 updater 함수라고도 불립니다.
+
+```javascript
+this.setState({ count: this.state.count + 1 });
+// or
+this.setState(prevState => (prevState.count += 1));
+```
 
 ## setState() 함수를 사용하지 않을때
 
@@ -65,21 +72,17 @@ onIncrease = () => {
 <center>[state를 직접 변경했을때.jpg]</center>
 
 위 결과를 보면 `state`값은 바뀌었지만 화면은 여전히 0을 보여주고 있습니다. 그 이유는 리액트가 컴포넌트의 `state`가 바뀌었다는걸 모르기 때문입니다.
-그렇다면 `setState()`함수를 사용했을때는 `state`가 바뀐다는걸 아는것인데 어떻게 구현되었는지 한번 `setState()`함수의 구현부를 살펴보겠습니다.
 
-<center><img src="./image2.png"  width="300px" ></center>
-<center>[setState() 함수의 구현부]</center>
+그럼 Component API 에서 제공하는 `forceUpdate()` 함수로 컴포넌트를 직접 렌더링 해보겠습니다.
 
-`setState()` 함수안에 `forceUpdate()`와`render()` 함수가 보이시나요?
-
-`render()`함수는 컴포넌트를 렌더링해주는 함수이며 `forceUpdate()`함수는 `render()`함수를 호출해주는 함수입니다.
+`forceUpdate()`함수는 컴포넌트의 `render()`함수를 호출해주는 함수입니다.
 
 그렇다면 state를 직접 변경하고 `forceUpdate()`를 호출해 렌더링시켜 보면 `setState()` 함수로 변경한것과 동일한 결과를 얻을 수 있을 것 입니다. 단, 이 방법은 리액트 성능에 제약이 있으므로 매번 새롭게 화면을 출력해야 되는 경우가 아니라면 가급적 사용하지 않기를 권장합니다.
 
 ```javascript
 onIncrease = () => {
   this.state.count += 1;
-  this.forceUpdate(); //컴포넌트를 렌더링 시킵니다.
+  this.forceUpdate(); //컴포넌트의 render() 함수를 실행 시킵니다.
 };
 ```
 

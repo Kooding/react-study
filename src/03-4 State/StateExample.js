@@ -7,21 +7,22 @@ class StateExample extends Component {
       count: 0
     };
   }
-
   onIncrease = () => {
     console.log("onIncrease() 호출");
     //state 변경
-    // this.setState({
-    //   count: this.state.count + 1
-    // });
-    this.state.count += 1;
+    this.setState({
+      count: this.state.count + 1
+    });
 
-    //this.state.count의 값은 현재 0 입니다.
+    // this.setState(prevState => (prevState.count += 1));
+
+    // this.state.count의 값은 현재 0 입니다.
     console.log("count 값 : ", this.state.count);
     //이후 호출될 render() 함수에서의 this.state.count의 값은 setState() 함수가 호출된 이후의 결과값 입니다.
   };
 
   render() {
+    console.log("render()호출", this);
     return (
       <div>
         {/* state 데이터는 this.state로 접근 가능합니다. */}
