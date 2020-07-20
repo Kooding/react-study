@@ -105,10 +105,6 @@ class LifecycleExample extends Component {
       visible: true
     };
   }
-
-  // onUpdate = () => {
-  //   this.forceUpdate();
-  // };
   onToggle = () => {
     this.setState({
       visible: !this.state.visible
