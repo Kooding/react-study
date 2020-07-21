@@ -1,8 +1,14 @@
 import React from "react";
-import LifecycleExample from "./03-5 Lifecycle/LifecycleExample";
+import MyComponenet from "./03-6-Class-Components/MyComponenet";
+import PureComponent from "./03-6-Class-Components/PureComponent";
 
 function App() {
-  return <LifecycleExample />;
+  return (
+    <>
+      <MyComponenet />
+      <PureComponent />
+    </>
+  );
 }
 
 export default App;
