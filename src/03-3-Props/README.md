@@ -113,7 +113,7 @@ Anchor 컴포넌트에서 fontsize의 값이 숫자가 아니라 문자열 형�
 
 > \*_주의_ - propTypes 오타에 주의 하자
 
-![콘솔의 결고 메세지](/src/images/error.png "에러메세지")
+![콘솔의 결고 메세지](./error.png "에러메세지")
 
 ## boolean Property
 
