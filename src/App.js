@@ -1,14 +1,14 @@
 import React from "react";
-import MyComponenet from "./03-6-PureComponents/MyComponenet";
-import PureComponent from "./03-6-PureComponents/PureComponent";
+import RefExample from "./03-last-OtherComponent/RefExample";
 
-function App() {
-  return (
-    <>
-      <MyComponenet />
-      <PureComponent />
-    </>
-  );
+class App extends React.Component {
+  render() {
+    return (
+      <>
+        <RefExample />
+      </>
+    );
+  }
 }
 
 export default App;
