@@ -6,6 +6,7 @@
 .pnp.js
 /public
 /src/test
+/src/sass
 # /src/stories
 # .storybook
 yarn.lock
