@@ -6,6 +6,9 @@
 .pnp.js
 /public
 /src/test
+# /src/stories
+# .storybook
+yarn.lock
 .prettierrc
 # testing
 /coverage
