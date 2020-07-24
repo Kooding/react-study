@@ -140,7 +140,7 @@ function loadStories() {
   // // 스토리 파일을 이곳에 추가할 수 있습니다.
   // require('../src/stories/NewCounterStory');
   const context = require.context("../src/stories", true, /Story\.js$/);
-  context.keys().forEach(srcFile => {
+  context.keys().forEach((srcFile) => {
     interopRequireDefault(context(srcFile));
   });
 }
@@ -153,21 +153,24 @@ configure(loadStories, module);
 이벤트 작동 테스트와 컴포넌트 사용 코드를 출력하기위한 확장 도구인
 `addon-actions`과 `addon-jsx`를 설치 하고 사용해 보겠습니다.
 
-### 7-1 addon-actions 설치하기
+### 7-1 addon-actions와 addon-jsx 설치하기 및 설정 추가 하기
 
 addon-actions는 스토리북에서 발생하는 특정 이벤트에 로그를 출력하게 해줍니다.
+addon-jsx는 스토리북에서 바로 jsx 코드를 확인할 수 있도록 해주는 확장 도구 입니다.
 
 ```Bash
-yarn add @storybook/addons @storybook/addon-actions
+yarn add @storybook/addons @storybook/addon-actions //addon-action 설치
+yarn add storybook-addon-jsx // addon-jsx 설치
 ```
 
-### 7-2 addon-actions 설정 추가하기
+### 7-2 addon-actions와 addon-jsx 설정 추가하기
 
 `.storybook` 폴더에 `addons.js` 라는 파일을 만들고 아래와 같이 입력해줍니다.
 
 ```javascript
 // 확장 도구는 이곳에 추가해주면 됩니다.
 import "@storybook/addon-actions/register";
+import "storybook-addon-jsx/register";
 ```
 
 ### 7-3 addon-actions을 적용하기
@@ -179,3 +182,34 @@ storiesOf("[test]", module).add("actionTest", () => (
 ```
 
 이 컴포넌트는 변경 이벤트가 발생하면 onChange 프로퍼티에 전달한 콜백 함수를 실행합니다.
+
+### 7-4 addon-jsx 적용하기
+
+addon-jsx를 사용하기위해서 기본 config.js를 수정 하겠습니다.
+
+```javascript
+// in config.js
+import { configure, setAddon } from "@storybook/react";
+import interopRequireDefault from "babel-runtime/helpers/interopRequireDefault";
+import JSXAddon from "storybook-addon-jsx";
+
+function loadStories() {
+  const context = require.context("../src/stories", true, /Story\.js$/);
+  context.keys().forEach((srcFile) => {
+    interopRequireDefault(context(srcFile));
+  });
+}
+
+setAddon(JSXAddon);
+configure(loadStories, module);
+```
+
+```javascript
+import React from "react";
+import { storiesOf } from "@storybook/react";
+
+import Input from "./Input";
+
+//addon-jsx를 사용하기 위해서 add() 함수 대신 addWithJSX() 함수를 사용합니다.
+storiesOf("Input", module).addWithJSX("기본 설정", () => <Input name="name" />);
+```
