@@ -1,26 +1,9 @@
 import React from "react";
-import Input from "./stories/Input";
-
+import Test from "./test/Test";
+import "./sass/materialize.scss";
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      name: ""
-    };
-  }
-  onChange = (name, value) => {
-    console.log(name, value);
-    this.setState({
-      name: value
-    });
-  };
   render() {
-    const { name } = this.state;
-    return (
-      <>
-        <Input name={name} onChange={this.onChange} autoFocus />
-      </>
-    );
+    return <Test />;
   }
 }
 
